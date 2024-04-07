@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #64003a;
+            text-align: center;
+            padding: 50px;
+            background-image: url("background.png");
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #000000;
+        }
+
+        p {
+            color: #000000;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .ucapan {
+            font-size: 18px;
+            color: #000000;
+        }
+
+        .btn-next {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .btn-next:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        var currentIndex = 0;
+        var sentences = [
+            "Assalamualaikum hai melvi",
+            "Semoga kamu selalu dalam lindungan allah yah, aamiin",
+            "Disini aku mau bilang",
+            "Minal aidzin walfaidzin, mohon maaf lahir dan batin melvi",
+            "Maaf kalau misalnya aku ada salah",
+            "Baik perkataan maupun perbuatan aku selama kita berteman",
+            "Maaf juga kalau misalnya aku suka nge chat kamu terus",
+            "Barangkali kamu ngerasa keganggu atau gimana, maaf yah",
+            "Sama aku juga mau bilang",
+            "Makasih udah mau nerima aku jadi temen kamu",
+            "Aku ngerasa beruntung dan bersyukur banget bisa kenalan dan temenan sama kamu",
+            "Rasa beruntung dan bersyukur itu masih aku rasain right now gatau kenapa ahaha",
+            "I hope tali silaturahmi pertemanan kita bisa lanjut terus yah, kalau bisa sampai seumur hidup wkwk",
+            "Pokoknya makasih banget yah melvi udah mau nerima aku jadi temen kamu",
+            "Malah jadi mellow gini :(",
+            "But asli inimah melvi ga bohong, aku bisa bilang kaya gitu ya karena kamu orangnya baik, ramah, and asik banget seperti yang aku omongin di DM IG",
+            "Itu paling melvi yang mau aku omongin sama kamu",
+            "Oh iyah btw...",
+            "Kapan badminton lagi melvi? Ahaha, semoga bisa badminton lagi yah dalam waktu dekat",
+            "Sekali lagi, minal aidzin walfaidzin mohon maaf lahir dan batin yah melvi"
+        ];
+
+        function init() {
+            updateMessage();
+        }
+
+        function updateMessage() {
+            var messageElement = document.getElementById('ucapan-message');
+            messageElement.innerText = sentences[currentIndex];
+        }
+
+        function nextSentence() {
+            currentIndex = (currentIndex + 1) % sentences.length;
+            if (currentIndex === sentences.length - 1) {
+                document.getElementById('btn-next').disabled = true;
+            }
+            updateMessage();
+        }
+    </script>
+    <title>To Melviana</title>
+</head>
+<body onload="init()">
+    <div class="container">
+        <h1>To Melviana:</h1>
+        <p id="ucapan-message" class="ucapan"></p>
+        <button id="btn-next" class="btn-next" onclick="nextSentence()">Next</button>
+    </div>
+</body>
+</html>
